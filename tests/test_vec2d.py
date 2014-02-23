@@ -32,3 +32,21 @@ def test_vec2d_indexerror():
     v = cy.Vec2d(1, 2)
     with pytest.raises(IndexError):
         v[2] = 1
+
+V = cy.Vec2d
+
+def test_vec2d_eq():
+    assert(V(1, 1) == V(1, 1))
+    assert(V(1, 1) != V(2, 2))
+
+def test_vec2d_add():
+    assert(V(1, 1) + V(1, 1) == V(2, 2))
+
+def test_vec2d_neg():
+    assert(-V(1, 1) == V(-1, -1))
+
+def test_vec2d_rotated():
+    assert(V(1, 0).rotated(0))
+
+def test_vec2d_mul():
+    assert(V(1, 1) * 2 == V(2, 2))

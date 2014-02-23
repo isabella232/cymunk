@@ -149,6 +149,11 @@ cdef class Shape:
         def __get__(self):
             return self._shape.hashid_private
 
+    property bb:
+        def __get__(self):
+            bb = self._shape.bb
+            return BB(bb.l, bb.b, bb.r, bb.t)
+
     def cache_bb(self):
         '''
         Update and returns the bouding box of this shape

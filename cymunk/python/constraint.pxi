@@ -193,15 +193,17 @@ cdef class DampedSpring(Constraint):
         global constraint_handlers
         constraint_handlers[self] = {}
 
-    property anchor1:
+    property anchr1:
         def __get__(self):
-            return self._dampedspring.anchr1
+            anchr1 = self._dampedspring.anchr1
+            return Vec2d(anchr1.x, anchr1.y)
         def __set__(self, tuple new_anchor):
             self._dampedspring.anchr1 = cpv(new_anchor[0], new_anchor[1])
 
-    property anchor2:
+    property anchr2:
         def __get__(self):
-            return self._dampedspring.anchr2
+            anchr2 = self._dampedspring.anchr2
+            return Vec2d(anchr2.x, anchr2.y)
         def __set__(self, tuple new_anchor):
             self._dampedspring.anchr2 = cpv(new_anchor[0], new_anchor[1])
 
