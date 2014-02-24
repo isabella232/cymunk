@@ -687,7 +687,8 @@ cdef class Arbiter:
         Returns the impulse that was applied this step to resolve the collision
         '''
         def __get__(self):
-            return cpArbiterTotalImpulse(self._arbiter)
+            cdef cpVect v = cpArbiterTotalImpulse(self._arbiter)
+            return Vec2d(v.x, v.y)
 
     property total_impulse_with_friction:
         '''
